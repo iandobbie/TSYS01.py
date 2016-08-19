@@ -17,3 +17,4 @@ Very simple to use, simply create a connection by calling
 and reads the calibration params. The temperature can then be read by
 calling `sensor.readTemp()`
 
+Detailed hardware info can be found at http://www.servoflo.com/download-archive/application-notes/227-measurement-specialties-a-intersema/1174-tsys01-app-note
