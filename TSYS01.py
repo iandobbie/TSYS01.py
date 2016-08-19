@@ -44,7 +44,7 @@ TSYS_POW_E = 0.01
 
 
 #main class.
-class TSY01(object):
+class TSYS01(object):
     """Class to read the TSY01 i2c temperature sensing board"""
     def __init__(self, address=ADDR_DEFAULT, i2c=1, **kwargs):
         """Initialise TSY01 device, resets and reads calibration data as well"""

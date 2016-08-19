@@ -4,7 +4,7 @@
 #
 
 
-import TSY01
+import TSYS01
 
-sensor=TSY01.TSY01(0x76)
+sensor=TSYS01.TSYS01(0x76)
 print 'Temperature = %3.3f C' % sensor.readTemp()
