@@ -1,7 +1,7 @@
 #Copyright (c) 2016 Ian Dobbie (ian.doibbie@bioch.ox.ac.uk)
 # V 1.0 20160815 IMD
 #
-# This is a simple library to access the TSYS01 i2c sensor board on a
+# This is a simple library to access the TSY01 i2c sensor board on a
 # rapsberrypi (tested on a 3)
 
 #Default i2c address is 0x76 i2c bus is 1 on a RPi 3. Only alternative
@@ -21,11 +21,11 @@ import struct
 ADDR_DEFAULT = 0x76
 
 #addresses of the calibration coefficents.
-#TSYS01_COEFF0 = 0xAA
-#TSYS01_COEFF1 = 0xA8
-#TSYS01_COEFF2 = 0xA6
-#TSYS01_COEFF3 = 0xA4
-#TSYS01_COEFF4 = 0xA2
+#TSY01_COEFF0 = 0xAA
+#TSY01_COEFF1 = 0xA8
+#TSY01_COEFF2 = 0xA6
+#TSY01_COEFF3 = 0xA4
+#TSY01_COEFF4 = 0xA2
 
 #The following are taken from the Ardruino libabry at:
 #https://github.com/Ell-i/ELL-i-KiCAD-Boards/blob/master/TSYS01/Arduino/Tsys01.h
@@ -44,13 +44,13 @@ TSYS_POW_E = 0.01
 
 
 #main class.
-class TSYS01(object):
-    """Class to read the TSYS01 i2c temperature sensing board"""
+class TSY01(object):
+    """Class to read the TSY01 i2c temperature sensing board"""
     def __init__(self, address=ADDR_DEFAULT, i2c=1, **kwargs):
-        """Initialise TSYS01 device, resets and reads calibration data as well"""
+        """Initialise TSY01 device, resets and reads calibration data as well"""
         self.address=address
         if (self.address != 0x76 and self.address != 0x77):
-            print "Error: TSYS01 only supports address 0x76 or 0x77"
+            print "Error: TSY01 only supports address 0x76 or 0x77"
             return
         self.bus = smbus.SMBus(1)
         #reset board to get it into a know state.
@@ -83,7 +83,7 @@ class TSYS01(object):
         
     def calculateTemp(self, adc):
         """Takes 24bit ADC values are returns temperature in C"""
-        #see TSYS01 data sheet for spec of this calulation
+        #see TSY01 data sheet for spec of this calulation
         term1=(-2.0)*self.cal[4]*((TSYS_POW_A*adc)**4)
         term2=(4.0)*self.cal[3]*((TSYS_POW_B*adc)**3)
         term3=(-2.0)*self.cal[2]*((TSYS_POW_C*adc)**2)
