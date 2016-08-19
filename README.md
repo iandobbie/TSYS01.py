@@ -9,12 +9,11 @@ you can also get the bare chips if you are more of a hardware hacker
 than me.
 
 The whole library is in TSYS01.py and requires smbus time and struct
-to run.
+to run. The readTemp.py file does the basic initialisation and then
+prints the temperature.
 
 Very simple to use, simply create a connection by calling
- sensor=TSYS01.TSYS01()
-This opens the connection, resets the board
+`sensor=TSYS01.TSYS01()` This opens the connection, resets the board
 and reads the calibration params. The temperature can then be read by
-calling
- sensor.readTemp()
+calling `sensor.readTemp()`
 
