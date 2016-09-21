@@ -68,6 +68,12 @@ class TSYS01(object):
         for i in range(5):
             caldata=self.bus.read_word_data(self.address,(0xAA-i*2))
             self.cal[i]=struct.unpack("<H",struct.pack(">H",caldata))[0]
+
+    #define to allow compatibility with adafruit MCP9808 library
+    def readTempC(self):
+        """Reads the adc values and returns the temp in C"""
+        return(readTemp())
+
             
     def readTemp(self):
         """Reads the adc values and returns the temp in C"""
