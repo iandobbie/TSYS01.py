@@ -72,7 +72,7 @@ class TSYS01(object):
     #define to allow compatibility with adafruit MCP9808 library
     def readTempC(self):
         """Reads the adc values and returns the temp in C"""
-        return(readTemp())
+        return(self.readTemp())
 
             
     def readTemp(self):
