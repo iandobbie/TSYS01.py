@@ -50,7 +50,7 @@ class TSYS01(object):
         """Initialise TSY01 device, resets and reads calibration data as well"""
         self.address=address
         if (self.address != 0x76 and self.address != 0x77):
-            print "Error: TSY01 only supports address 0x76 or 0x77"
+            print ("Error: TSY01 only supports address 0x76 or 0x77")
             return
         self.bus = smbus.SMBus(1)
         #reset board to get it into a know state.
